@@ -1,12 +1,15 @@
 function isPalindrome(word) {
-  let wordLowerCase=word.toLowerCase();
-  let wordSeparate=wordLowerCase.split('').reverse().join('')
-  if(wordLowerCase===wordSeparate){
-     return true;
-   }else{
-     return false;
-   }
-}
+  // iterate from the start to the center point
+  for(let i=0; i<word.length /2; i++){
+    // confirm every letter to see if it corresponds with the last one
+  
+    const a=word.length -1 -i;
+    // if any letters can't match, return false
+    if(word[i] !== word[a]) return false;
+  }
+  return true
+  }
+
 if (require.main===module){
   // add your own custom tests in here
   console.log("Expecting: true");
@@ -16,6 +19,11 @@ if (require.main===module){
 
   console.log("Expecting: false");
   console.log("=>",isPalindrome("robot"));
+
+  console.log("");
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("abba"));
 }
 
 module.exports = isPalindrome;
